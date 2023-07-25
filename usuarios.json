@@ -1,0 +1,16 @@
+[
+    {
+        "nombre": "Frodo",
+        "contraseña": "3407"
+    },
+
+    {
+        "nombre": "Gandalf",
+        "contraseña": "3407"
+    },
+
+    {
+        "nombre": "Merry",
+        "contraseña": "3407"
+    }
+]
