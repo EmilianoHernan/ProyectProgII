@@ -12,5 +12,35 @@
     {
         "nombre": "Merry",
         "contraseña": "3407"
+    },
+
+    {
+        "nombre": "Pippin",
+        "contraseña": "3407"
+    },
+
+    {
+        "nombre": "Aragorn",
+        "contraseña": "3407"
+    },
+
+    {
+        "nombre": "Legolas",
+        "contraseña": "3407"
+    },
+
+    {
+        "nombre": "Gimli",
+        "contraseña": "3407"
+    },
+
+    {
+        "nombre": "Sam",
+        "contraseña": "3407"
+    },
+
+    {
+        "nombre": "Boromir",
+        "contraseña": "3407"
     }
 ]
