@@ -4,268 +4,268 @@
         "Genero": "Fantasia",
         "Director": "Peter Jackson",
         "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Sinopsis": "Un hobbit de la Comarca y ocho compañeros emprenden un viaje para destruir el poderoso Anillo Único y salvar la Tierra Media del Señor Oscuro Sauron.",
+        "Imagen": "https://www.imdb.com/title/tt0120737/mediaviewer/rm3578885120/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Donnie Darko",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
+        "Genero": "Ciencia Ficcion",
+        "Director": "Richard Kelly",
         "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Sinopsis": "Tras salvarse por poco de un extraño accidente, un adolescente con problemas tiene visiones de un hombre con un disfraz de conejo que lo manipula para cometer una serie de crímenes.",
+        "Imagen": "https://www.imdb.com/title/tt0246578/mediaviewer/rm1513976832/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Big trouble in chinatown",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Accion",
+        "Director": "John Carpenter",
+        "Anio": "1986",
+        "Sinopsis": "Un rudo camionero y su compañero se enfrentan a un antiguo hechicero en una batalla sobrenatural bajo Chinatown.",
+        "Imagen": "https://www.imdb.com/title/tt0090728/mediaviewer/rm1981123841/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Dazed and Confused",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Drama-comedia",
+        "Director": "Richard Linklater",
+        "Anio": "1993",
+        "Sinopsis": "Las aventuras de unos estudiantes de secundaria en su último día de colegio en Mayo de 1976",
+        "Imagen": "https://www.imdb.com/title/tt0106677/mediaviewer/rm3026180352/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "El quinto elemento",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Accion-Ciencia ficcion",
+        "Director": "Luc Besson",
+        "Anio": "1997",
+        "Sinopsis": "En un colorido futuro, un taxista se convierte involuntariamente en la figura central en la búsqueda de un arma cósmica legendaria para mantener a raya a Zorg y a El Maligno.",
+        "Imagen": "https://www.imdb.com/title/tt0119116/mediaviewer/rm142044416/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "La pistola desnuda",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Comedia",
+        "Director": "David Zucker",
+        "Anio": "1988",
+        "Sinopsis": "El incompetente detective de la policía Frank Drebin debe frustrar un intento de asesinato de la reina Isabel II.",
+        "Imagen": "https://www.imdb.com/title/tt0095705/mediaviewer/rm2877822976/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "El señor de los anillos: Las dos torres",
         "Genero": "Fantasia",
         "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Anio": "2002",
+        "Sinopsis": "Mientras Frodo y Sam se acercan a Mordor con la ayuda del astuto Gollum, la comunidad dividida se enfrenta al nuevo aliado de Sauron, Saruman, y a sus hordas de Isengard.",
+        "Imagen": "https://www.imdb.com/title/tt0167261/mediaviewer/rm3993466624/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "El señor de los anillos: El retorno del Rey",
         "Genero": "Fantasia",
         "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Anio": "2003",
+        "Sinopsis": "Gandalf y Aragorn lideran el mundo de los hombres contra la armada de Sauron para distraer su atención de Frodo y Sam, quienes se aproximan al Monte del Destino con el Anillo Único.",
+        "Imagen": "https://www.imdb.com/title/tt0167260/mediaviewer/rm622753536/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Fright Night",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Terror",
+        "Director": "Tom Holland",
+        "Anio": "1985",
+        "Sinopsis": "Un adolescente descubre que el recién llegado a su barrio es un vampiro, por lo que recurre a un actor de un programa de terror de televisión para que le ayude a lidiar con él.",
+        "Imagen": "https://www.imdb.com/title/tt0089175/mediaviewer/rm3642850304/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Gladiador",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Accion",
+        "Director": "Ridley Scott",
+        "Anio": "2000",
+        "Sinopsis": "Un exgeneral romano se propone vengarse del emperador corrupto que asesinó a su familia y lo envió a la esclavitud.",
+        "Imagen": "https://www.imdb.com/title/tt0172495/mediaviewer/rm3895686144/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "La princesa prometida",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Aventura",
+        "Director": "Rob Reiner",
+        "Anio": "1987",
+        "Sinopsis": "Mientras está en casa enfermo en la cama, el abuelo de un niño le lee la historia de un granjero convertido en pirata que encuentra numerosos obstáculos, enemigos y aliados en su búsqueda para reunirse con su verdadero amor.",
+        "Imagen": "https://www.imdb.com/title/tt0093779/mediaviewer/rm981366016/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Scream",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Terror",
+        "Director": "Wes Craven",
+        "Anio": "1996",
+        "Sinopsis": "Un año después del asesinato de su madre, una adolescente es aterrorizada por un nuevo asesino, que tiene como objetivo a la chica y a sus amigos utilizando las películas de terror como parte de un juego mortal.",
+        "Imagen": "https://www.imdb.com/title/tt0117571/mediaviewer/rm1227872512/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Pesadilla en calle Elm",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Terror",
+        "Director": "Wes Craven",
+        "Anio": "1984",
+        "Sinopsis": "Varias personas son perseguidas por un cruel asesino en serie que mata a sus víctimas durante sus sueños. Mientras los supervivientes tratan de encontrar el motivo por el que han sido elegidos, el asesino no desperdiciará ninguna ocasión para matarlos tan pronto como se duerman.",
+        "Imagen": "https://www.imdb.com/title/tt0087800/mediaviewer/rm2867542272/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Viernes 13",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Terror",
+        "Director": "Sean S. Cunningham",
+        "Anio": "1980",
+        "Sinopsis": "Un grupo de monitores que intenta reabrir un campamento de verano llamado Crystal Lake, que tiene un pasado sombrío, es acechado por un misterioso asesino.",
+        "Imagen": "https://www.imdb.com/title/tt0080761/mediaviewer/rm3726410241/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Hacia rutas salvajes",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Biografica",
+        "Director": "Sean Penn",
+        "Anio": "2007",
+        "Sinopsis": "Tras graduarse, atleta y mejor estudiante de su clase Christopher McCandless abandona todas sus posesiones, dona todo su dinero a la caridad, y camina hasta Alaska, donde vive en el bosque. A lo largo de su viaje, Christopher encuentra a varios personajes que dan forma a su vida.",
+        "Imagen": "https://www.imdb.com/title/tt0758758/mediaviewer/rm1904112896/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Stand by me",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Aventura",
+        "Director": "Rob Reiner",
+        "Anio": "1986",
+        "Sinopsis": "Tras la muerte de un amigo, un escritor recuerda un viaje de juventud para encontrar el cuerpo de un chico desaparecido.",
+        "Imagen": "https://www.imdb.com/title/tt0092005/mediaviewer/rm2662298880/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Tonto y retonto",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Comedia",
+        "Director": "Peter Farrelly - Bobby Farrelly",
+        "Anio": "1994",
+        "Sinopsis": "Después de que una mujer deje un maletín en la terminal del aeropuerto, un tonto conductor de limusina y su amigo todavía más tonto emprenden un viaje por carretera a través del país hasta Aspen para devolverlo.",
+        "Imagen": "https://www.imdb.com/title/tt0109686/mediaviewer/rm1722947584/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "La momia",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Accion-aventura",
+        "Director": "Stephen Sommers",
+        "Anio": "1999",
+        "Sinopsis": "En una excavación arqueológica en la antigua ciudad de Hamunaptra, un estadounidense despierta accidentalmente a una momia que comienza a causar estragos mientras busca la reencarnación de su amor perdido.",
+        "Imagen": "https://www.imdb.com/title/tt0120616/mediaviewer/rm4131288064/?ref_=tt_ov_i"
     },
 
     {
-        "nombre": "Supercool",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "nombre": "Superbad",
+        "Genero": "Comedia",
+        "Director": "Greg Mottola",
+        "Anio": "2007",
+        "Sinopsis": "Dos estudiantes de secundaria codependientes se ven obligados a lidiar con la ansiedad de su separación cuando su plan de organizar una fiesta empapada de alcohol fracasa.",
+        "Imagen": "https://www.imdb.com/title/tt0829482/mediaviewer/rm210999553/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Shrek",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
+        "Genero": "Comedia",
+        "Director": "Andrew Adamson - Vicky Jenson",
         "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Sinopsis": "Un malvado señor exilia a las criaturas de los cuentos de hadas al pantano de un ogro gruñón, que debe emprender una búsqueda y rescatar a una princesa para el señor con el fin de recuperar sus tierras.",
+        "Imagen": "https://www.imdb.com/title/tt0126029/mediaviewer/rm955136512/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "8 Mile",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Drama",
+        "Director": "Curtis Hanson",
+        "Anio": "2002",
+        "Sinopsis": "Un joven rapero con una vida repleta de problemas busca la fama, pero tanto amigos como enemigos se lo ponen difícil en el mundo del rap.",
+        "Imagen": "https://www.imdb.com/title/tt0298203/mediaviewer/rm3448468736/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Back to the future",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Ciencia Ficcion",
+        "Director": "Robert Zemeckis",
+        "Anio": "1985",
+        "Sinopsis": "Marty McFly, un estudiante de secundaria de 17 años, es enviado accidentalmente treinta años al pasado en un DeLorean que viaja en el tiempo, inventado por su gran amigo, el excéntrico científico Doc Brown.",
+        "Imagen": "https://www.imdb.com/title/tt0088763/mediaviewer/rm3415438592/?ref_=tt_ov_i"
     },
 
     {
-        "nombre": "Goonies",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "nombre": "The Goonies",
+        "Genero": "Aventura",
+        "Director": "Richard Donner",
+        "Anio": "1985",
+        "Sinopsis": "Los Goonies son un grupo de amigos que viven en Goon Docks, Astoria, pero sus casas han sido compradas y van a ser demolidas. Sin embargo, vivirán su última aventura en busca de un tesoro que pueda salvar el barrio.",
+        "Imagen": "https://www.imdb.com/title/tt0089218/mediaviewer/rm2695263488/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "America Pie",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Comedia",
+        "Director": "Paul Weitz - Chris Weitz",
+        "Anio": "1999",
+        "Sinopsis": "Cuatro adolescentes hacen un pacto para perder la virginidad antes de la noche del baile de graduación.",
+        "Imagen": "https://www.imdb.com/title/tt0163651/mediaviewer/rm2641810432/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Breakfast club",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Drama-comedia",
+        "Director": "John Hughes",
+        "Anio": "1985",
+        "Sinopsis": "Cinco estudiantes de instituto se encuentran en detención escolar el sábado y descubren que tienen en común mucho más de lo que pensaban.",
+        "Imagen": "https://www.imdb.com/title/tt0088847/mediaviewer/rm383682049/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "1408",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Terror",
+        "Director": "Mikael Håfström",
+        "Anio": "2007",
+        "Sinopsis": "Un hombre especializado en desmentir sucesos paranormales se aloja en la legendaria habitación 1408 del Hotel Dolphin. Poco después de instalarse, se enfrenta a un auténtico terror.",
+        "Imagen": "https://www.imdb.com/title/tt0450385/mediaviewer/rm1798258176/?ref_=tt_ov_i"
     },
 
     {
-        "nombre": "Batman",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "nombre": "Batman returns",
+        "Genero": "Accion",
+        "Director": "Tim Burton",
+        "Anio": "1992",
+        "Sinopsis": "Mientras Batman lucha contra el Pingüino, que está causando estragos en Gotham City con la ayuda de un cruel hombre de negocios, una empleada de este se convierte en Catwoman y tiene sus propios planes.",
+        "Imagen": "https://www.imdb.com/title/tt0103776/mediaviewer/rm2011378432/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Jurassic park",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Aventura",
+        "Director": "Steven Spielberg",
+        "Anio": "1993",
+        "Sinopsis": "Gracias al ADN fosilizado en ámbar, John Hammond da vida a varias especies de dinosaurios y crea Jurassic Park, un parque temático en una isla de Costa Rica. Pero lo que parecía un sueño se convierte rápidamente en pesadilla.",
+        "Imagen": "https://www.imdb.com/title/tt0107290/mediaviewer/rm3913805824/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Transformers",
-        "Genero": "Fantasia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Genero": "Ciencia Ficcion",
+        "Director": "Michael Bay",
+        "Anio": "2007",
+        "Sinopsis": "Una antigua lucha entre dos razas cibertronianas, los heroicos autobots y los malvados decepticons, llega a la Tierra, con una pista sobre el poder definitivo que tiene un adolescente.",
+        "Imagen": "https://www.imdb.com/title/tt0418279/mediaviewer/rm1758532608/?ref_=tt_ov_i"
     },
 
     {
         "nombre": "Monthy Python and the Holy Grail",
         "Genero": "Comedia",
-        "Director": "Peter Jackson",
-        "Anio": "2001",
-        "Sinopsis": "xxxxxx",
-        "Imagen": "xxxxx"
+        "Director": "Terry Gilliam - Terry Jones",
+        "Anio": "1975",
+        "Sinopsis": "El rey Arturo y sus caballeros de la mesa redonda se embarcan en una búsqueda surrealista y de bajo presupuesto del Santo Grial, encontrando muchos y muy absurdos obstáculos.",
+        "Imagen": "https://www.imdb.com/title/tt0071853/mediaviewer/rm3184419840/?ref_=tt_ov_i"
     }
 ]
