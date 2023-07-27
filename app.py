@@ -12,10 +12,12 @@ def index():
 def login():
         return render_template("ingreso.html")
 
-@app.rout("/ultimaspelis")
+@app.route("/ultimaspelis")
 def ultimas_peliculas():
-     return peliculas.json
-
+         with open("peliculas.json", encoding="utf-8") as file:
+            peliculas = json.load(file) 
+            ultimas_10_peliculas = peliculas[-10:]
+            return jsonify(ultimas_10_peliculas)
 
 
 
