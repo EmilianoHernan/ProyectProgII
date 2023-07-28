@@ -1,0 +1,51 @@
+{% extends './layout.html' %}
+{% block body %}
+
+<div>
+    <center>
+        <h1>¿Deseas Añadir una pelicula a nuestro catalogo? <b>¡AQUI PUEDES HACERLO!</b></h1>
+        <h2>Recuerda que no es necesario dejar un comentario pero las peliculas sin comentarios pueden ser eliminadas por otros usuarios</h2>
+    </center>
+</div>
+
+<div>
+    <center>
+        <form action="" method="post">
+            <label for="pelicula"> Pelicula: </label>
+            <input type="text" name="pelicula" value="" required>
+            <br>
+            <br>
+            <label for="anio"> Año: </label>
+            <input type="text" name="anio" value="" required>
+            <br>
+            <br>
+            <label for="director"> Director: </label>
+            <input type="text" name="director" value="" required>
+            <br>
+            <br>
+            <label for="genero"> Genero: </label>
+            <input type="text" name="genero" value="" required>
+            <br>
+            <br>
+            <label for="sinopsis"> Sinopsis: </label>
+            <input type="text" name="sinopsis" value="" required>
+            <br>
+            <br>
+            <label for="imagen"> Imagen: </label>
+            <input type="text" name="imagen" value="" required>
+            <br>
+            <br>
+            <label for="comentario"> Comentario: </label>
+            <input type="text" name="comentario" value="">
+            <br>
+            <br>
+            <label for="enviar"></label>
+            <input type="submit" name="submit" value="Enviar">
+            <br>
+            <br>
+        </form>
+    </center>
+
+</div>
+
+{% endblock %}
