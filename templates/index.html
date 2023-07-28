@@ -10,7 +10,7 @@
     <br>
     <br>
     <br>
-    <h3><center><a href="http://127.0.0.1:5000/login"></a> INGRESA </center></h3>
+    <h3><center><a href="{{ url_for('login') }}"> INGRESA </a></center></h3>
     <h3><center> O </center></h3>
-    <h3><center> REGISTRATE </center></h3>
+    <h3><a href="{{ url_for('registro') }}"><center> REGISTRATE </center></a></h3>
 {% endblock %}

@@ -1,22 +1,40 @@
-<h1> Registrate en la pagina para obtener todos los beneficios </h1>
+{% extends './layout.html' %}
+{% block body %}
 
+<center>****************</center>
+<center><h1> Registrate en la pagina para obtener todos los beneficios </h1></center>
+<center>****************</center>
+<br>
 <form action="">
+<center>
     <div>
-        <label for="usuario"> Nombre de usuario: </label>
-        <input type="text" required>
+        <label for="usuario"><b> Nombre de usuario: </b></label>
+        <center><input type="text" required></center>
     </div>
 
     <br>
-
-    <div>
-        <label for="email"> Email: </label>
-        <input type="email" required>
-    </div>
-
+    <br>
     <br>
 
     <div>
-        <label for="password"> Contraseña: </label>
-        <input type="password" required>
+        <label for="email"><b> Email: </b></label>
+        <center><input type="email" required></center>
     </div>
+
+    <br>
+    <br>
+    <br>
+
+    <div>
+        <label for="password"> <b> Contraseña: </b></label><br>
+        <center><input type="password" required></center>
+    </div>
+
+    <br>
+    <br>
+    <label for="registro"></label>
+    <input type="submit" id="registro" name="submit" value="REGISTRARSE">
+</center>
 </form>
+
+{% endblock %}

@@ -3,20 +3,22 @@
 
 <center><h1> Iniciar sesion </h1></center>
 
-<form action="">
+<form action="/login" method="post">
     <center>
     <div>
         <label for="Usuario"> <h1><b> Nombre de usuario: </b></h1> </label>
-        <input type="text" required>       
+        <input type="text" name="nombre" required>       
     </div>
 
     <div>
         <label for="Password"> <h1><b> Contraseña: </b></h1> </label>
-        <input type="password" required> 
+        <input type="password" name="contrasenia" required> 
     </div>
+    <br>
+    <br>
+    <label for="ingresar"></label>
+    <input type="submit" id="ingresar" name="submit" value="INGRESAR">
     </center>
-    <br>
-    <br>
     <br>
     <br>
     <br>
