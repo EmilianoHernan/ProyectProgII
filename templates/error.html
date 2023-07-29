@@ -1,0 +1,16 @@
+{% extends './layout.html' %}
+{% block body %}
+
+<style>
+    .mensajeError{
+        color: red;
+    }
+</style>
+
+{% if error %}
+    <center><h1><b class="mensajeError"> {{ error }} </b></h1></center>
+{% endif %}
+
+<a href="{{url_for('ingreso')}}">Volver atras</a>
+
+{% endblock %}

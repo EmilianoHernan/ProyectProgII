@@ -11,23 +11,28 @@ def index():
 
 @app.route("/login", methods=['POST', 'GET'])
 def login():
-        usuarioIngresado = None # Asignandole valor predeterminado a la variable, sino rompe el codigo
-        #Abro mi archivo json y lo paso a un objeto de python en la variable users_registrados
-        with open("usuarios.json", encoding="utf-8") as file:
-              registrados =json.load(file)
-            
-        if request.method == "POST" :
-              usuarioIngresado = request.form["nombre"]
-              contraseniaIngresada = request.form["contrasenia"]
+        if request.method == 'POST':
+            usuarioIngresado = request.form["nombre"]
+            contraseniaIngresada = request.form["contrasenia"]
 
-        #verifico si el usuario existe o no
-        for usuario in registrados:
-              if usuario["nombre"] == usuarioIngresado and usuario["contrasenia"] == contraseniaIngresada:      
-                session ["nombre"] = usuarioIngresado
-                return redirect (url_for("main"))
-        else:
-              mensajeError = "Usuario o contraseña incorrectas, vuelve a intentarlo"
-              return render_template ('ingreso.html', error = mensajeError)
+        #Abro mi archivo json y lo paso a un objeto de python en la variable users_registrados
+            with open("usuarios.json", encoding="utf-8") as file:
+                  registrados =json.load(file)
+
+            #verifico si el usuario existe o no
+            usuario_encontrado = False
+            for usuario in registrados:
+                  if usuario["nombre"] == usuarioIngresado and usuario["contrasenia"] == contraseniaIngresada:      
+                        session ["nombre"] = usuarioIngresado
+                        usuario_encontrado= True
+                        break
+              ####CORREGIR MENSAJE DE ERROR
+            if usuario_encontrado:
+                 return redirect(url_for('main'))
+            mensajeError = "El usuario o contraseña son incorrectas"
+            return render_template("error.html", error=mensajeError)
+        
+        return render_template("ingreso.html")
 
 
 @app.route("/main")
@@ -38,7 +43,7 @@ def main():
         return redirect(url_for("login"))
 
 @app.route("/ingreso")
-def ingresar():
+def ingreso():
       return render_template("ingreso.html")
 
 
@@ -49,9 +54,26 @@ def ultimas_peliculas():
             ultimas_10_peliculas = peliculas[-10:]
             return jsonify(ultimas_10_peliculas)
 
+#REGISTRAR UN USUARIO
 @app.route("/registro")
 def registro():
-      return render_template("registro.html")       
+      return render_template("registro.html") 
+
+#BORRAR PELICULAS
+@app.route("/borrar")
+def borrar():
+     return render_template("borrar.html") 
+
+#AÑADIR PELICULA AL CATALOGO
+@app.route("/agregar")
+def agregar():
+     return render_template("agregar.html")
+
+@app.route("/error")
+def error():
+     return render_template("error.html")
+
+
 
 
 
