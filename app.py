@@ -62,11 +62,11 @@ def registro():
     if request.method == "POST":
         nuevoUsuario = {
             "nombre": request.form["nombre"],
-            "contraseña": request.form["contrasenia"]
+            "contrasenia": request.form["contrasenia"]
         }
 
         try:
-            with open("usuarios.json", encoding="utf-8", mode="r") as file:
+            with open("usuarios.json", encoding="utf-8", mode="r+") as file:
                 usuariosRegistrados = json.load(file)
         except FileNotFoundError:
             usuariosRegistrados = []
@@ -74,7 +74,7 @@ def registro():
         # Verifico si el usuario esta registrado
         for usuario in usuariosRegistrados:
             if usuario["nombre"] == nuevoUsuario["nombre"]:
-                mensajeError = "El nombre de usuario está siendo utilizado"
+                mensajeError = "El usuario ya esta siendo utilizado"
                 return render_template("error.html", error=mensajeError)
 
         # Agrego al usuario nuevo
