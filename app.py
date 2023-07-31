@@ -11,6 +11,8 @@ def index():
 
 @app.route("/login", methods=['POST', 'GET'])
 def login():
+        usuarioIngresado = None
+        contraseniaIngresada = None
         if request.method == 'POST':
             usuarioIngresado = request.form["nombre"]
             contraseniaIngresada = request.form["contrasenia"]
@@ -55,21 +57,35 @@ def ultimas_peliculas():
             return jsonify(ultimas_10_peliculas)
 
 #REGISTRAR UN USUARIO
-@app.route("/registro", methods=["POST"])
+@app.route("/registro", methods=["POST", "GET"])
 def registro():
-      if request.method == "POST":
-           nuevoUsuario = {
-                "nombre": request.form["nombre"],
-                "contrasenia": request.form["contrasenia"]
-           }
+    if request.method == "POST":
+        nuevoUsuario = {
+            "nombre": request.form["nombre"],
+            "contraseña": request.form["contrasenia"]
+        }
 
-           with open("usuarios.json", encoding="utf-8") as file:
-                usuariosRegistrados: json.load(file)
+        try:
+            with open("usuarios.json", encoding="utf-8", mode="r") as file:
+                usuariosRegistrados = json.load(file)
+        except FileNotFoundError:
+            usuariosRegistrados = []
 
-           for usuario in usuariosRegistrados:
-                if usuario ["nombre"] == nuevoUsuario["nombre"]:
-                     mensajeError= "El nombre de usuario esta siendo utilizado"
-                     return render_template("error.html", error= mensajeError)
+        # Verifico si el usuario esta registrado
+        for usuario in usuariosRegistrados:
+            if usuario["nombre"] == nuevoUsuario["nombre"]:
+                mensajeError = "El nombre de usuario está siendo utilizado"
+                return render_template("error.html", error=mensajeError)
+
+        # Agrego al usuario nuevo
+        usuariosRegistrados.append(nuevoUsuario)
+
+        with open("usuarios.json", encoding="utf-8", mode="w") as file:
+            json.dump(usuariosRegistrados, file)
+
+        return redirect(url_for('login'))
+
+    return render_template("registro.html")
 
 
 
