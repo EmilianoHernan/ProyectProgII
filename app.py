@@ -4,6 +4,7 @@ import json
 app = Flask(__name__)
 app.secret_key='LaCoMuNAOSOS'
 
+
 #Enrutamientos, Ruta raiz "/"
 @app.route('/') 
 def index():
@@ -37,6 +38,9 @@ def login():
         return render_template("ingreso.html")
 
 
+
+
+
 @app.route("/main")
 def main():
     if "nombre" in session:
@@ -44,9 +48,17 @@ def main():
     else:
         return redirect(url_for("login"))
 
+
+
+
+
 @app.route("/ingreso")
 def ingreso():
       return render_template("ingreso.html")
+
+
+
+
 
 
 @app.route("/ultimaspelis")
@@ -55,6 +67,8 @@ def ultimas_peliculas():
             peliculas = json.load(file) 
             ultimas_10_peliculas = peliculas[-10:]
             return jsonify(ultimas_10_peliculas)
+
+
 
 #REGISTRAR UN USUARIO
 @app.route("/registro", methods=["POST", "GET"])
@@ -87,15 +101,66 @@ def registro():
 
     return render_template("registro.html")
 
-
-
-
+@app.route("/listaPelis")
+def listaPelis():
+    with open("peliculas.json", encoding="utf-8") as file:
+        lista_de_peliculas = json.load(file)
+    return render_template("listaPelis.html", peliculas=lista_de_peliculas)
 
 
 #BORRAR PELICULAS
-@app.route("/borrar")
+# Ruta para borrar una película
+@app.route("/borrar", methods=["GET", "POST"])
 def borrar():
-     return render_template("borrar.html") 
+    with open("peliculas.json", encoding="utf-8") as file:
+        listaPeliculas = json.load(file)
+
+    if request.method == "POST":
+        # Obtener el nombre de la película ingresado por el usuario
+        nombrePelicula = request.form["peli"]
+
+        # Buscar la película en la lista de películas
+        peliculaEncontrada = None
+        for pelicula in listaPeliculas:
+            if pelicula["nombre"] == nombrePelicula:
+                peliculaEncontrada = pelicula
+                break
+
+        # Si la película no existe, mostrar mensaje de error
+        if peliculaEncontrada == None:
+            mensaje_error = "La película no existe."
+            return render_template("borrar.html", error=mensaje_error)
+
+        # Verificar si la película tiene comentarios
+        if peliculaEncontrada.get("comentarios"):
+            mensaje_error = "No se puede eliminar la película, tiene comentarios de usuarios."
+            return render_template("error.html", error=mensaje_error)
+
+        # Si la película existe y no tiene comentarios, eliminarla de la lista de películas
+        listaPeliculas.remove(peliculaEncontrada)
+
+        # Puedes guardar los cambios en el archivo JSON si lo deseas
+        with open("peliculas.json", "w", encoding="utf-8") as file:
+            json.dump(listaPeliculas, file)
+
+        # Mostrar mensaje de éxito
+        mensaje_exito = "La película ha sido eliminada con éxito."
+        return render_template("exito.html", mensaje_exito=mensaje_exito)
+
+    # Si es una solicitud GET, simplemente mostrar el formulario para borrar
+    return render_template("borrar.html")
+
+
+
+
+
+
+
+
+
+
+
+
 
 #AÑADIR PELICULA AL CATALOGO
 @app.route("/agregar")
