@@ -55,9 +55,26 @@ def ultimas_peliculas():
             return jsonify(ultimas_10_peliculas)
 
 #REGISTRAR UN USUARIO
-@app.route("/registro")
+@app.route("/registro", methods=["POST"])
 def registro():
-      return render_template("registro.html") 
+      if request.method == "POST":
+           nuevoUsuario = {
+                "nombre": request.form["nombre"],
+                "contrasenia": request.form["contrasenia"]
+           }
+
+           with open("usuarios.json", encoding="utf-8") as file:
+                usuariosRegistrados: json.load(file)
+
+           for usuario in usuariosRegistrados:
+                if usuario ["nombre"] == nuevoUsuario["nombre"]:
+                     mensajeError= "El nombre de usuario esta siendo utilizado"
+                     return render_template("error.html", error= mensajeError)
+
+
+
+
+
 
 #BORRAR PELICULAS
 @app.route("/borrar")
