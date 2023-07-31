@@ -1,0 +1,16 @@
+{% extends "./layout.html" %}
+
+{% block body %}
+    <h1>Lista de Películas</h1>
+    <ul>
+        {% for pelicula in peliculas %}
+            <li>{{ pelicula.nombre }}</li>
+        {% endfor %}
+    </ul>
+
+    <div>
+        <center>
+            <b><a href="{{ url_for('borrar') }}">regresa</a></b>
+        </center>
+    </div>
+{% endblock %}
