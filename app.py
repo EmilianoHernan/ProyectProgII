@@ -116,38 +116,34 @@ def borrar():
         listaPeliculas = json.load(file)
 
     if request.method == "POST":
-        # Obtener el nombre de la película ingresado por el usuario
         nombrePelicula = request.form["peli"]
 
-        # Buscar la película en la lista de películas
+
         peliculaEncontrada = None
         for pelicula in listaPeliculas:
             if pelicula["nombre"] == nombrePelicula:
                 peliculaEncontrada = pelicula
                 break
 
-        # Si la película no existe, mostrar mensaje de error
+        #mensaje de error
         if peliculaEncontrada == None:
             mensaje_error = "La película no existe."
             return render_template("borrar.html", error=mensaje_error)
-
-        # Verificar si la película tiene comentarios
+        
+        # Viendo los comentarios
         if peliculaEncontrada.get("comentarios"):
             mensaje_error = "No se puede eliminar la película, tiene comentarios de usuarios."
             return render_template("error.html", error=mensaje_error)
 
-        # Si la película existe y no tiene comentarios, eliminarla de la lista de películas
+        # Elimino la pelicula
         listaPeliculas.remove(peliculaEncontrada)
 
-        # Puedes guardar los cambios en el archivo JSON si lo deseas
         with open("peliculas.json", "w", encoding="utf-8") as file:
             json.dump(listaPeliculas, file)
 
-        # Mostrar mensaje de éxito
         mensaje_exito = "La película ha sido eliminada con éxito."
         return render_template("exito.html", mensaje_exito=mensaje_exito)
 
-    # Si es una solicitud GET, simplemente mostrar el formulario para borrar
     return render_template("borrar.html")
 
 
