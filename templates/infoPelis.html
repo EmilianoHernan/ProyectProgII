@@ -1,0 +1,23 @@
+{% extends "./layout.html" %}
+
+{% block body %}
+
+<h1>Lista de Películas</h1>
+<ul>
+    {% for pelicula in peliculas %}
+        <li>{{ pelicula.nombre }}</li>
+        <li>{{ pelicula.Director }}</li>
+        <li>{{ pelicula.Anio }}</li>
+        <li>{{ pelicula.Sinopsis }}</li>
+        <li>{{ pelicula.Imagen }}</li>
+        <li>{{ pelicula.comentarios }}</li><br>
+    {% endfor %}
+</ul>
+
+
+
+
+
+
+
+{% endblock %}
