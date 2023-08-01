@@ -159,8 +159,16 @@ def borrar():
 
 
 #AÑADIR PELICULA AL CATALOGO
-@app.route("/agregar")
+@app.route("/agregar", methods=["POST", "GET"])
 def agregar():
+     if request.method == "POST":
+          nombre= request.nombre["nombre"]
+          anio= request.año["anio"]
+          director= request.director["director"]
+          genero= request.genero["genero"]
+          sinopsis= request.sinopsis["sinopsis"]
+          imagen= request.imagen["imagen"]
+          comentario= request.comentario["comentario"]
      return render_template("agregar.html")
 
 @app.route("/error")
