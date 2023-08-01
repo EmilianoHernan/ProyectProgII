@@ -162,13 +162,36 @@ def borrar():
 @app.route("/agregar", methods=["POST", "GET"])
 def agregar():
      if request.method == "POST":
-          nombre= request.nombre["nombre"]
-          anio= request.año["anio"]
-          director= request.director["director"]
-          genero= request.genero["genero"]
-          sinopsis= request.sinopsis["sinopsis"]
-          imagen= request.imagen["imagen"]
-          comentario= request.comentario["comentario"]
+          nombre= request.form["nombre"]
+          anio= request.form["anio"]
+          director= request.form["director"]
+          genero= request.form["genero"]
+          sinopsis= request.form["sinopsis"]
+          imagen= request.form["imagen"]
+          comentario= request.form["comentario"]
+
+          nuevaPeli={
+               "nombre": nombre,
+               "anio": anio,
+               "director": director,
+               "genero": genero,
+               "sinopsis": sinopsis,
+               "imagen": imagen,
+               "comentarios": {} if not comentario else {1: comentario}
+          }
+
+        #Agregando la nueva pelicula al json
+          with open("peliculas.json", encoding="utf-8") as file:
+               listaPelis= json.load(file)
+
+          listaPelis.append(nuevaPeli)
+
+          with open("peliculas.json", "w", encoding="utf-8") as file:
+               json.dump(listaPelis, file)
+
+          return redirect(url_for("listaPelis"))
+
+
      return render_template("agregar.html")
 
 @app.route("/error")
@@ -176,8 +199,9 @@ def error():
      return render_template("error.html")
 
 
-
-
+@app.route("/editar")
+def editar():
+     return render_template("editar.html")
 
 
 #Si estamos en el archivo main de nuestra aplicacion, la ejecutamos
