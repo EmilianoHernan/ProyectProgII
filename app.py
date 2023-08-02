@@ -199,9 +199,53 @@ def error():
      return render_template("error.html")
 
 
-@app.route("/editar")
-def editar():
+def obtenerNombrePelicula(nombrePelicula):
+    with open("peliculas.json", encoding="utf-8") as file:
+        listaPeliculas = json.load(file)
+    for pelicula in listaPeliculas:
+        if pelicula["nombre"] == nombrePelicula:
+            return pelicula
+    return None
+
+def actualizarPelicula(nombrePelicula, nueva_info):
+    with open("peliculas.json", encoding="utf-8") as file:
+        listaPeliculas = json.load(file)
+    for pelicula in listaPeliculas:
+        if pelicula["nombre"] == nombrePelicula:
+            pelicula.update(nueva_info)
+            break
+    with open("peliculas.json", "w", encoding="utf-8") as file:
+        json.dump(listaPeliculas, file)
+
+@app.route("/editar", methods=["GET", "POST"])
+def editarPelicula():
+     if request.method == "POST":
+          nombrePelicula = request.form ["pelicula"]
+          infoEditada= {
+            "anio": request.form["anio"],
+            "director": request.form["director"],
+            "genero": request.form["genero"],
+            "sinopsis": request.form["sinopsis"],
+            "imagen": request.form["imagen"],
+            "comentarios": obtenerNombrePelicula(nombrePelicula)["comentarios"]
+          }
+
+          actualizarPelicula(nombrePelicula, infoEditada)
+
+          return redirect(url_for("infoPelis"))
      return render_template("editar.html")
+
+
+
+
+
+
+@app.route("/infoPelis")
+def infoPelis():
+    with open("peliculas.json", encoding="utf-8") as file:
+        lista_de_peliculas = json.load(file)
+    return render_template("infoPelis.html", peliculas=lista_de_peliculas)
+
 
 
 #Si estamos en el archivo main de nuestra aplicacion, la ejecutamos
