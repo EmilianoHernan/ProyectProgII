@@ -207,33 +207,39 @@ def obtenerNombrePelicula(nombrePelicula):
             return pelicula
     return None
 
-def actualizarPelicula(nombrePelicula, nueva_info):
+def actualizarPelicula(pelicula_actualizada):
     with open("peliculas.json", encoding="utf-8") as file:
         listaPeliculas = json.load(file)
-    for pelicula in listaPeliculas:
-        if pelicula["nombre"] == nombrePelicula:
-            pelicula.update(nueva_info)
+    for i, pelicula in enumerate(listaPeliculas):
+        if pelicula["nombre"] == pelicula_actualizada["nombre"]:
+            listaPeliculas[i] = pelicula_actualizada
             break
     with open("peliculas.json", "w", encoding="utf-8") as file:
         json.dump(listaPeliculas, file)
 
 @app.route("/editar", methods=["GET", "POST"])
-def editarPelicula():
-     if request.method == "POST":
-          nombrePelicula = request.form ["pelicula"]
-          infoEditada= {
+def editar():
+    if request.method == "POST":
+        nombrePelicula = request.form["pelicula"]
+        infoEditada = {
+            "nombre": nombrePelicula,
             "anio": request.form["anio"],
             "director": request.form["director"],
             "genero": request.form["genero"],
             "sinopsis": request.form["sinopsis"],
             "imagen": request.form["imagen"],
             "comentarios": obtenerNombrePelicula(nombrePelicula)["comentarios"]
-          }
+        }
 
-          actualizarPelicula(nombrePelicula, infoEditada)
+        actualizarPelicula(infoEditada)
 
-          return redirect(url_for("infoPelis"))
-     return render_template("editar.html")
+        return redirect(url_for("infoPelis"))
+
+    return render_template("editar.html")
+
+@app.route("/directores", methods=["GET"])
+def endpointDirectores():
+
 
 
 
