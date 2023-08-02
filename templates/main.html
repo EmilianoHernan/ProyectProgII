@@ -2,18 +2,43 @@
 
 {% block body %}
 
-<h1> Bienvenido a la pagina oficial de peliculas en comunidad </h1>
-<br>
-<br>
+<center><h1> Bienvenido a la pagina oficial de peliculas en comunidad </h1></center>
 <h2> 
-    Encontras un amplio catalogo de peliculas, con comentarios de nuestros usuarios, detalles, imagenes y 
-    todo lo necesario para que puedas tomar la mejor eleccion para tu siguiente noche de peliculas 
+    <center>
+        Encontraras un amplio catalogo de peliculas, <br>
+        con comentarios de nuestros usuarios, detalles, <br>
+        imagenes y todo lo necesario para que puedas tomar <br>
+        la mejor eleccion para tu siguiente noche de peliculas 
+        <a href="{{url_for('infoPelis')}}">Mira nuestro catalogo</a>
+    </center>
 </h2>
 
 <h3> 
-    Tambien si eres un usuario premium (solo te tomara mirar algunas peliculas y comentar que te parecen) 
-    podras eliminar peliculas y realizar 
+    Tambien si eres un usuario premium (solo te tomara mirar algunas peliculas <br>
+    y comentar que te parecen) 
+    podras eliminar peliculas (solo si no tienen comentarios) link <a href="{{url_for('borrar')}}">Aqui</a> 
 </h3>
+
+<h3>
+    Añade tus primeras peliculas y amplia nuestro catalogo, si la pelicula ya existe puedes dejar tu comentario!
+    <a href="{{url_for('agregar')}}"> Aqui </a>
+</h3>
+
+<br>
+<br>
+<h3>
+    ¿Hay algun error en los datos de nuestras peliculas? Editalo Aqui
+    <a href="{{url_for('editar')}}"> Aqui </a>
+</h3>
+
+<br>
+<br>
+<br>
+<h1>SECCION DE ENDPOINTS</h1>
+<h2>Lista de Directores: <a href="{{url_for("directores")}}")"><b>presiona aqui</b></a></h2>
+<h2>Lista de generos: <a href="{{url_for("generos")}}")"><b>presiona aqui</b></a></h2>
+<h2>Peliculas con imagen de portada: <a href="{{url_for("imagenes")}}")"><b>presiona aqui</b></a></h2>
+
 
 
 {% endblock %}

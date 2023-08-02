@@ -43,6 +43,7 @@ def login():
 
 @app.route("/main")
 def main():
+    
     if "nombre" in session:
         return render_template("main.html")
     else:
@@ -65,8 +66,8 @@ def ingreso():
 def ultimas_peliculas():
          with open("peliculas.json", encoding="utf-8") as file:
             peliculas = json.load(file) 
-            ultimas_10_peliculas = peliculas[-10:]
-            return jsonify(ultimas_10_peliculas)
+            ultimas10Peliculas = peliculas[-10:]
+            return jsonify(ultimas10Peliculas)
 
 
 
@@ -237,11 +238,29 @@ def editar():
 
     return render_template("editar.html")
 
-@app.route("/directores", methods=["GET"])
-def endpointDirectores():
+#Endpoints
+@app.route("/directores")
+def directores():
+    with open("peliculas.json", encoding="utf-8") as file:
+        listaPelis= json.load(file)
+    #Que no repita directores que aparecen mas de una vez
+    directoresUnicos= list(set(pelicula["director"]for pelicula in listaPelis))
+    return jsonify(directoresUnicos)
 
+@app.route("/generos")
+def generos():
+    with open("peliculas.json", encoding="utf-8") as file:
+        listaPelis= json.load(file)
+    generosUnicos= list(set(generos["genero"]for generos in listaPelis))
+    return jsonify(generosUnicos)
 
+@app.route("/imagenes")
+def imagenes():
+    with open ("peliculas.json", encoding="utf-8") as file:
+        listaPelis=json.load(file)
 
+    peliculasImagen= [pelicula for pelicula in listaPelis if pelicula.get("imagen")]
+    return jsonify(peliculasImagen)
 
 
 
