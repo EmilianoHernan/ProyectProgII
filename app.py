@@ -29,7 +29,7 @@ def login():
                         session ["nombre"] = usuarioIngresado
                         usuario_encontrado= True
                         break
-              ####CORREGIR MENSAJE DE ERROR
+              
             if usuario_encontrado:
                  return redirect(url_for('main'))
             mensajeError = "El usuario o contraseña son incorrectas"
@@ -50,16 +50,9 @@ def main():
         return redirect(url_for("login"))
 
 
-
-
-
 @app.route("/ingreso")
 def ingreso():
       return render_template("ingreso.html")
-
-
-
-
 
 
 @app.route("/ultimaspelis")
@@ -102,11 +95,9 @@ def registro():
 
     return render_template("registro.html")
 
-@app.route("/listaPelis")
-def listaPelis():
-    with open("peliculas.json", encoding="utf-8") as file:
-        lista_de_peliculas = json.load(file)
-    return render_template("listaPelis.html", peliculas=lista_de_peliculas)
+
+
+
 
 
 #BORRAR PELICULAS
@@ -238,6 +229,52 @@ def editar():
 
     return render_template("editar.html")
 
+
+
+@app.route("/buscaPelis", methods=["GET", "POST"])
+def buscaPelis():
+    if request.method== "POST":
+        busco_pelis = request.form ["busco_pelis"].lower()
+        with open("peliculas.json", encoding="utf-8")as file:
+            listaPelis= json.load(file)
+
+        peliculasEncontradas= [pelicula for pelicula in listaPelis if busco_pelis in pelicula["nombre"].lower()]
+
+        if not peliculasEncontradas:
+            mensajeError = "No se encontraron peliculas que coincidan con la búsqueda."
+            return render_template("error.html", error=mensajeError)
+        
+        return render_template("buscaPelis.html", peliculas=peliculasEncontradas, query=busco_pelis)
+    return render_template("buscaPelis.html", peliculas=None, busco_pelis=None)
+
+
+@app.route("/buscaDirect", methods=["GET", "POST"])
+def buscaDirect():
+    if request.method == "POST":
+        busco_direct= request.form ["busco_direct"].lower()
+        with open ("peliculas.json", encoding="utf-8") as file:
+            listaPelis= json.load(file)
+
+        peliculasEncontradas= [pelicula for pelicula in listaPelis if busco_direct in pelicula ["director"].lower()]
+
+        if not peliculasEncontradas:
+            mensajeError = "No se encontraron directores que coincidan con la búsqueda."
+            return render_template("error.html", error=mensajeError)
+    
+        return render_template("buscaDirect.html", peliculas=peliculasEncontradas, query=busco_direct)
+    
+    return render_template("buscaDirect.html", peliculas=None, busco_direct=None)
+
+        
+
+
+
+
+
+
+
+
+
 #Endpoints
 @app.route("/directores")
 def directores():
@@ -261,6 +298,12 @@ def imagenes():
 
     peliculasImagen= [pelicula for pelicula in listaPelis if pelicula.get("imagen")]
     return jsonify(peliculasImagen)
+
+@app.route("/listaPelis")
+def listaPelis():
+    with open("peliculas.json", encoding="utf-8") as file:
+        lista_de_peliculas = json.load(file)
+    return render_template("listaPelis.html", peliculas=lista_de_peliculas)
 
 
 
