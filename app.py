@@ -1,8 +1,11 @@
+
 from flask import Flask, render_template, jsonify, request, session, redirect, url_for
 import json
 
+
 app = Flask(__name__)
 app.secret_key='LaCoMuNAOSOS'
+
 
 
 #Enrutamientos, Ruta raiz "/"
@@ -18,7 +21,6 @@ def login():
             usuarioIngresado = request.form["nombre"]
             contraseniaIngresada = request.form["contrasenia"]
 
-        #Abro mi archivo json y lo paso a un objeto de python en la variable users_registrados
             with open("usuarios.json", encoding="utf-8") as file:
                   registrados =json.load(file)
 
@@ -28,12 +30,11 @@ def login():
                   if usuario["nombre"] == usuarioIngresado and usuario["contrasenia"] == contraseniaIngresada:      
                         session ["nombre"] = usuarioIngresado
                         usuario_encontrado= True
-                        break
-              
+                        break  
             if usuario_encontrado:
                  return redirect(url_for('main'))
             mensajeError = "El usuario o contraseña son incorrectas"
-            return render_template("error.html", error=mensajeError)
+            return render_template("error_ingreso.html", error=mensajeError)
         
         return render_template("ingreso.html")
 
@@ -54,8 +55,8 @@ def main():
 def ingreso():
       return render_template("ingreso.html")
 
-
-@app.route("/ultimaspelis")
+#Enrutador de las ultimas 10 peliculas
+@app.route("/ultimaspelis", methods=["GET"])
 def ultimas_peliculas():
          with open("peliculas.json", encoding="utf-8") as file:
             peliculas = json.load(file) 
@@ -72,18 +73,18 @@ def registro():
             "nombre": request.form["nombre"],
             "contrasenia": request.form["contrasenia"]
         }
-
+        # Bloque de excepcion de usuario
         try:
             with open("usuarios.json", encoding="utf-8", mode="r+") as file:
                 usuariosRegistrados = json.load(file)
         except FileNotFoundError:
-            usuariosRegistrados = []
+                usuariosRegistrados = []
 
         # Verifico si el usuario esta registrado
         for usuario in usuariosRegistrados:
             if usuario["nombre"] == nuevoUsuario["nombre"]:
                 mensajeError = "El usuario ya esta siendo utilizado"
-                return render_template("error.html", error=mensajeError)
+                return render_template("error", error=mensajeError)
 
         # Agrego al usuario nuevo
         usuariosRegistrados.append(nuevoUsuario)
@@ -98,10 +99,8 @@ def registro():
 
 
 
-
-
 #BORRAR PELICULAS
-# Ruta para borrar una película
+
 @app.route("/borrar", methods=["GET", "POST"])
 def borrar():
     with open("peliculas.json", encoding="utf-8") as file:
@@ -110,24 +109,24 @@ def borrar():
     if request.method == "POST":
         nombrePelicula = request.form["peli"]
 
-
+        #buscamos la pelicula
         peliculaEncontrada = None
         for pelicula in listaPeliculas:
             if pelicula["nombre"] == nombrePelicula:
                 peliculaEncontrada = pelicula
                 break
 
-        #mensaje de error
+        #si no la encontramos
         if peliculaEncontrada == None:
             mensaje_error = "La película no existe."
             return render_template("borrar.html", error=mensaje_error)
         
-        # Viendo los comentarios
+        # si Si la encontramos
         if peliculaEncontrada.get("comentarios"):
             mensaje_error = "No se puede eliminar la película, tiene comentarios de usuarios."
-            return render_template("error.html", error=mensaje_error)
+            return render_template("error_borrar.html", error=mensaje_error)
 
-        # Elimino la pelicula
+
         listaPeliculas.remove(peliculaEncontrada)
 
         with open("peliculas.json", "w", encoding="utf-8") as file:
@@ -137,14 +136,6 @@ def borrar():
         return render_template("exito.html", mensaje_exito=mensaje_exito)
 
     return render_template("borrar.html")
-
-
-
-
-
-
-
-
 
 
 
@@ -183,14 +174,11 @@ def agregar():
 
           return redirect(url_for("listaPelis"))
 
-
      return render_template("agregar.html")
 
-@app.route("/error")
-def error():
-     return render_template("error.html")
 
 
+#Editar una pelicla
 def obtenerNombrePelicula(nombrePelicula):
     with open("peliculas.json", encoding="utf-8") as file:
         listaPeliculas = json.load(file)
@@ -202,9 +190,9 @@ def obtenerNombrePelicula(nombrePelicula):
 def actualizarPelicula(pelicula_actualizada):
     with open("peliculas.json", encoding="utf-8") as file:
         listaPeliculas = json.load(file)
-    for i, pelicula in enumerate(listaPeliculas):
+    for pelicula in listaPeliculas:
         if pelicula["nombre"] == pelicula_actualizada["nombre"]:
-            listaPeliculas[i] = pelicula_actualizada
+            pelicula.update(pelicula_actualizada)
             break
     with open("peliculas.json", "w", encoding="utf-8") as file:
         json.dump(listaPeliculas, file)
@@ -230,7 +218,7 @@ def editar():
     return render_template("editar.html")
 
 
-
+#Buscar una pelicula
 @app.route("/buscaPelis", methods=["GET", "POST"])
 def buscaPelis():
     if request.method== "POST":
@@ -248,6 +236,8 @@ def buscaPelis():
     return render_template("buscaPelis.html", peliculas=None, busco_pelis=None)
 
 
+
+#Buscar un director
 @app.route("/buscaDirect", methods=["GET", "POST"])
 def buscaDirect():
     if request.method == "POST":
@@ -259,20 +249,13 @@ def buscaDirect():
 
         if not peliculasEncontradas:
             mensajeError = "No se encontraron directores que coincidan con la búsqueda."
-            return render_template("error.html", error=mensajeError)
+            return render_template("error_directores.html", error=mensajeError)
     
         return render_template("buscaDirect.html", peliculas=peliculasEncontradas, query=busco_direct)
     
     return render_template("buscaDirect.html", peliculas=None, busco_direct=None)
 
         
-
-
-
-
-
-
-
 
 
 #Endpoints
@@ -312,7 +295,22 @@ def listaPelis():
 def infoPelis():
     with open("peliculas.json", encoding="utf-8") as file:
         lista_de_peliculas = json.load(file)
-    return render_template("infoPelis.html", peliculas=lista_de_peliculas)
+
+    page = request.args.get("page", type=int, default=1)
+    items_per_page = 5
+
+    start_idx = (page - 1) * items_per_page
+    end_idx = start_idx + items_per_page
+
+    paginated_peliculas = lista_de_peliculas[start_idx:end_idx]
+
+    total_pages = (len(lista_de_peliculas) + items_per_page - 1) // items_per_page
+
+    return render_template("infoPelis.html", peliculas=paginated_peliculas, page=page, total_pages=total_pages)
+
+@app.route("/error")
+def error():
+     return render_template("error.html")
 
 
 

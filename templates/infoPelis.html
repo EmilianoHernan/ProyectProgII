@@ -5,19 +5,33 @@
 <h1>Lista de Películas</h1>
 <ul>
     {% for pelicula in peliculas %}
-        <li>{{ pelicula.nombre }}</li>
-        <li>{{ pelicula.Director }}</li>
-        <li>{{ pelicula.Anio }}</li>
-        <li>{{ pelicula.Sinopsis }}</li>
-        <li>{{ pelicula.Imagen }}</li>
-        <li>{{ pelicula.comentarios }}</li><br>
+    <h4>Pelicula: <li>{{ pelicula.nombre }}</li></h4>
+    <h4>Director: <li>{{ pelicula.director }}</li></h4>
+    <h4>Anio: <li>{{ pelicula.anio }}</li></h4>
+    <h4>Sinopsis: <li>{{ pelicula.sinopsis }}</li></h4>
+    {% if pelicula.imagen %}
+        <img src="{{ pelicula.imagen }}" alt="{{ pelicula.nombre }}" width="200">
+    {% endif %}
+    <h4>Comentarios: <li>{{ pelicula.comentarios }}</li><br></h4>
+    <p>****************</p>
     {% endfor %}
 </ul>
 
+<div class="pagination">
+    {% if page > 1 %}
+    <a href="{{ url_for('infoPelis', page=page-1) }}">Anterior</a>
+    {% endif %}
 
+    Página {{ page }} de {{ total_pages }}
 
-
-
-
+    {% if page < total_pages %}
+    <a href="{{ url_for('infoPelis', page=page+1) }}">Siguiente</a>
+    {% endif %}
+    
+    {% if page == total_pages %}
+    <a href="{{ url_for('infoPelis', page=1) }}">Volver a pag 1</a>
+    <a href="{{ url_for('main') }}">Volver al menú principal</a>
+    {% endif %}
+</div>
 
 {% endblock %}
