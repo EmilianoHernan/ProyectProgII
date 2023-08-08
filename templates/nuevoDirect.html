@@ -1,0 +1,22 @@
+{% extends './layout.html' %}
+{% block body %}
+
+<center>
+    
+    <h1>Agregar un nuevo director</h1>
+
+    <form method="post">
+        <label for="nuevo_director">Nombre del nuevo director:</label>
+        <input type="text" name="nuevo_director">
+        <input type="submit" value="Agregar Director">
+    </form>
+    <a href="{{ url_for('main') }}">Volver a main</a>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+</center>
+
+
+{% endblock %}

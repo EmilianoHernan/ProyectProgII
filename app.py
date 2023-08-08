@@ -272,6 +272,29 @@ def buscaDirect():
 
     return render_template("buscaDirect.html", directores_pelis=None, busco_direct=None)
 
+
+@app.route("/nuevoDirect", methods=["GET", "POST"])
+def nuevoDirect():
+    if request.method == "POST":
+        nuevo_director = request.form["nuevo_director"]
+        
+        with open("directores.json", encoding="utf-8") as file:
+            lista_directores = json.load(file)
+
+        if nuevo_director in lista_directores:
+            mensaje_error = "El director ya está en la lista."
+            return render_template("nuevoDirect.html", error=mensaje_error)
+
+        # Agregar el nuevo director a la lista
+        lista_directores.append(nuevo_director)
+
+        # Guardar la lista actualizada en el archivo JSON
+        with open("directores.json", encoding="utf-8", mode="w") as file:
+            json.dump(lista_directores, file, indent=4)
+
+        return redirect(url_for("exitoDirect"))
+
+    return render_template("nuevoDirect.html")
         
 
 
@@ -293,7 +316,7 @@ def directores():
     # Eliminar duplicados manteniendo el orden
     directores_unificados = list(dict.fromkeys(directores_completos))
 
-    return jsonify(directores_unificados)
+    return directores_unificados
 
 @app.route("/generos")
 def generos():
@@ -339,6 +362,10 @@ def infoPelis():
 @app.route("/error")
 def error():
      return render_template("error.html")
+
+@app.route("/exitoDirect")
+def exitoDirect():
+    return render_template("exitoDirect.html")
 
 
 
