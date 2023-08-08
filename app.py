@@ -237,23 +237,40 @@ def buscaPelis():
 
 
 
-#Buscar un director
 @app.route("/buscaDirect", methods=["GET", "POST"])
 def buscaDirect():
     if request.method == "POST":
-        busco_direct= request.form ["busco_direct"].lower()
-        with open ("peliculas.json", encoding="utf-8") as file:
-            listaPelis= json.load(file)
+        busco_direct = request.form["busco_direct"].lower()
 
-        peliculasEncontradas= [pelicula for pelicula in listaPelis if busco_direct in pelicula ["director"].lower()]
+        with open("peliculas.json", encoding="utf-8") as file:
+            listaPelis = json.load(file)
 
-        if not peliculasEncontradas:
+        with open("directores.json", encoding="utf-8") as file:
+            listaDirectores = json.load(file)
+
+        # Diccionario para almacenar directores y sus películas
+        directores_pelis = {}
+
+        # Buscar películas en peliculas.json
+        for pelicula in listaPelis:
+            if busco_direct in pelicula["director"].lower():
+                director = pelicula["director"]
+                if director not in directores_pelis:
+                    directores_pelis[director] = []
+                directores_pelis[director].append(pelicula["nombre"])
+
+        # Buscar directores en directores.json
+        for director in listaDirectores:
+            if busco_direct in director.lower() and director not in directores_pelis:
+                directores_pelis[director] = []
+
+        if not directores_pelis:
             mensajeError = "No se encontraron directores que coincidan con la búsqueda."
             return render_template("error_directores.html", error=mensajeError)
-    
-        return render_template("buscaDirect.html", peliculas=peliculasEncontradas, query=busco_direct)
-    
-    return render_template("buscaDirect.html", peliculas=None, busco_direct=None)
+
+        return render_template("buscaDirect.html", directores_pelis=directores_pelis, query=busco_direct)
+
+    return render_template("buscaDirect.html", directores_pelis=None, busco_direct=None)
 
         
 
@@ -262,10 +279,21 @@ def buscaDirect():
 @app.route("/directores")
 def directores():
     with open("peliculas.json", encoding="utf-8") as file:
-        listaPelis= json.load(file)
-    #Que no repita directores que aparecen mas de una vez
-    directoresUnicos= list(set(pelicula["director"]for pelicula in listaPelis))
-    return jsonify(directoresUnicos)
+        listaPelis = json.load(file)
+
+    with open("directores.json", encoding="utf-8") as file:
+        listaDirectores = json.load(file)
+
+    # Obtener directores únicos de la lista de películas
+    directores_peliculas = list(set(pelicula["director"] for pelicula in listaPelis))
+
+    # Combinar directores de películas con la lista de directores
+    directores_completos = directores_peliculas + listaDirectores
+
+    # Eliminar duplicados manteniendo el orden
+    directores_unificados = list(dict.fromkeys(directores_completos))
+
+    return jsonify(directores_unificados)
 
 @app.route("/generos")
 def generos():
