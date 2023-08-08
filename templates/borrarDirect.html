@@ -1,0 +1,21 @@
+{% extends './layout.html' %}
+{% block body %}
+<div>
+    <center>
+        <h1>Eliminar un director</h1>
+        {% if error %}
+        <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        <form action="" method="post">
+            <label for="director">Nombre del director a eliminar: </label>
+            <input type="text" name="director" required>
+            <br>
+            <br>
+            <input type="submit" name="borrar" value="Eliminar">
+        </form>
+        <a href="{{url_for('main')}}">volver atras</a>
+    </center>
+
+</div>
+
+{% endblock %}

@@ -296,6 +296,29 @@ def nuevoDirect():
 
     return render_template("nuevoDirect.html")
         
+@app.route("/borrarDirect", methods=["GET", "POST"])
+def borrarDirect():
+    error = None  # Inicializar el mensaje de error como None
+
+    if request.method == "POST":
+        nombre_director = request.form["director"].lower()  # Convertir a minúsculas
+
+        with open("directores.json", encoding="utf-8") as file:
+            lista_directores = json.load(file)
+
+        # Buscar y eliminar el director si existe (comparación en minúsculas)
+        if nombre_director in map(str.lower, lista_directores):
+            lista_directores = [dir for dir in lista_directores if dir.lower() != nombre_director]
+
+            with open("directores.json", encoding="utf-8", mode="w") as file:
+                json.dump(lista_directores, file, indent=4)
+
+            return redirect(url_for("exitoEliminar"))
+        else:
+            error = "Director no encontrado en la lista."
+
+    return render_template("borrarDirect.html", error=error)
+
 
 
 #Endpoints
@@ -366,6 +389,10 @@ def error():
 @app.route("/exitoDirect")
 def exitoDirect():
     return render_template("exitoDirect.html")
+
+@app.route("/exitoEliminar")
+def exitoEliminar():
+    return render_template("exitoEliminar.html")
 
 
 
